@@ -1,5 +1,4 @@
 export class ProductModel {
-  _id: string;
   image: string;
   title: string;
   price: number;
@@ -10,7 +9,7 @@ export class ProductModel {
   advantages: string;
   disAdvantages: string;
   categories: string[];
-  tags: string[];
+  tags: string;
   characteristics: {
     [key: string]: string;
   };
