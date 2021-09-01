@@ -1,4 +1,4 @@
-import { Get, Module, Param, Post } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { ReviewController } from './review.controller';
 import { ReviewModel } from './review.model';
@@ -9,7 +9,9 @@ import { ReviewModel } from './review.model';
     TypegooseModule.forFeature([
       {
         typegooseClass: ReviewModel,
-        schemaOptions: 'Review',
+        schemaOptions: {
+          collection: 'Review',
+        },
       },
     ]),
   ],
