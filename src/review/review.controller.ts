@@ -1,3 +1,4 @@
+import { UserEmail } from './../decorators/user-email.decorator';
 import { ReviewService } from './review.service';
 import { CreateReviewDto } from './dto/create-review.dto';
 import {
@@ -35,8 +36,13 @@ export class ReviewController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get('byProduct/:productId')
-  async getByProduct(@Param('productId') productId: string) {
+  async getByProduct(
+    @Param('productId') productId: string,
+    @UserEmail() email: string,
+  ) {
+    console.log(email);
     return this.reviewService.findByProductId(productId);
   }
 }
